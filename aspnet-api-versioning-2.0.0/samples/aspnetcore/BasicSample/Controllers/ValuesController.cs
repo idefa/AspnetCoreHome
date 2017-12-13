@@ -6,8 +6,8 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    [ApiVersion( "1.0" )]
-    [Route( "api/[controller]" )]
+    [ApiVersion("1.0")]
+    [Route("api/[controller]")]
     public class ValuesController : Controller
     {
         // GET api/values?api-version=1.0

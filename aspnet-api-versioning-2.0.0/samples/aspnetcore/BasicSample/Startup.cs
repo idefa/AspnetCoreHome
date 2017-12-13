@@ -29,9 +29,13 @@
         public void ConfigureServices( IServiceCollection services )
         {
             services.AddMvc();
-            
+
             // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
-            services.AddApiVersioning( o => o.ReportApiVersions = true );
+            services.AddApiVersioning(o => {
+                o.ReportApiVersions = true;
+                o.AssumeDefaultVersionWhenUnspecified = true;
+
+            });
         }
 
         public void Configure( IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
