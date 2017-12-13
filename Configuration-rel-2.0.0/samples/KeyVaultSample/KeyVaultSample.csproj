@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\dependencies.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <DebugType>portable</DebugType>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="settings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Microsoft.Extensions.Configuration.AzureKeyVault\Microsoft.Extensions.Configuration.AzureKeyVault.csproj" />
+    <ProjectReference Include="..\..\src\Microsoft.Extensions.Configuration.Json\Microsoft.Extensions.Configuration.Json.csproj" />
+  </ItemGroup>
+
+</Project>

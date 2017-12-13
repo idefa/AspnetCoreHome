@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+ <PropertyGroup>
+  <TargetFramework>netcoreapp2.0</TargetFramework>
+  <RootNamespace>Microsoft.Examples</RootNamespace>
+  <DocumentationFile>bin\$(Configuration)\netcoreapp1.0\SwaggerSample.xml</DocumentationFile>
+ </PropertyGroup>
+
+ <ItemGroup>
+  <Content Update="wwwroot\**\*;Views;Areas\**\Views;appsettings.json;web.config">
+   <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+  </Content>
+ </ItemGroup>
+
+ <ItemGroup>
+  <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Mvc.Versioning\Microsoft.AspNetCore.Mvc.Versioning.csproj" />
+  <ProjectReference Include="..\..\..\src\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.csproj" />
+ </ItemGroup>
+
+ <ItemGroup>
+  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+ </ItemGroup>
+
+ <ItemGroup>
+  <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+ </ItemGroup>
+
+</Project>

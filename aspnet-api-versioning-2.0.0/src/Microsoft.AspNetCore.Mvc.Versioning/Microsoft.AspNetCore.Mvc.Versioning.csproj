@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+ <PropertyGroup>
+  <VersionPrefix>2.0.0</VersionPrefix>
+  <AssemblyVersion>2.0.0.0</AssemblyVersion>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <NETStandardImplicitPackageVersion>2.0.0-*</NETStandardImplicitPackageVersion>
+  <NETStandardLibraryNETFrameworkVersion>2.0.0-*</NETStandardLibraryNETFrameworkVersion>
+  <AssemblyTitle>Microsoft ASP.NET Core API Versioning</AssemblyTitle>
+  <Description>A service API versioning library for Microsoft ASP.NET Core.</Description>
+  <RootNamespace>Microsoft.AspNetCore.Mvc</RootNamespace>
+  <PackageTags>Microsoft;AspNet;AspNetCore;Versioning</PackageTags>
+ </PropertyGroup>
+
+ <ItemGroup>
+  <ReleaseNotes Include="https://github.com/Microsoft/aspnet-api-versioning/releases/tag/v2.0.0" />
+ </ItemGroup>
+
+ <ItemGroup>
+  <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+ </ItemGroup>
+
+ <ItemGroup>
+  <Compile Update="SR.Designer.cs">
+   <DesignTime>True</DesignTime>
+   <AutoGen>True</AutoGen>
+   <DependentUpon>SR.resx</DependentUpon>
+  </Compile>
+ </ItemGroup>
+
+ <ItemGroup>
+  <EmbeddedResource Update="SR.resx">
+   <Generator>ResXFileCodeGenerator</Generator>
+   <LastGenOutput>SR.Designer.cs</LastGenOutput>
+  </EmbeddedResource>
+ </ItemGroup>
+
+ <Import Project="..\Common\Common.projitems" Label="Shared" />
+ <Import Project="..\Shared\Shared.projitems" Label="Shared" />
+ <Import Project="$([MSBuild]::GetPathOfFileAbove(build.targets))" />
+
+</Project>
