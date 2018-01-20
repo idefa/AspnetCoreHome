@@ -30,7 +30,7 @@ namespace SampleApp
                         .AddConfiguration(loggingConfiguration.GetSection("Logging"))
                         .AddFilter("Microsoft", LogLevel.Warning)
                         .AddFilter("System", LogLevel.Warning)
-                        .AddFilter("SampleApp.Program", LogLevel.Debug)
+                        .AddFilter<ColoredConsoleLoggerProvider>("SampleApp.Program", LogLevel.Debug)
                         .AddConsole();
 #if NET461
                     builder.AddEventLog();
