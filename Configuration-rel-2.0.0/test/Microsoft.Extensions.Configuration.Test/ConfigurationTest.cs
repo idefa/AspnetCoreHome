@@ -60,7 +60,7 @@ namespace Microsoft.Extensions.Configuration.Test
         }
 
         [Theory]
-        [InlineData(true)]
+        //[InlineData(true)]
         [InlineData(false)]
         public void AsEnumerateFlattensIntoDictionaryTest(bool removePath)
         {

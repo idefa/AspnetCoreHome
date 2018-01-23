@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata minClientVersion="2.12">
+    <id>xunit.assert</id>
+    <version>99.99.99-dev</version>
+    <title>xUnit.net [Assertion Library]</title>
+    <authors>James Newkirk,Brad Wilson</authors>
+    <summary>Includes the assertion library from xUnit.net (xunit.assert.dll).</summary>
+    <description>Includes the assertion library from xUnit.net (xunit.assert.dll). Supports .NET Standard 1.1.</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/xunit/xunit</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/xunit/media/master/logo-512-transparent.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/xunit/xunit/master/license.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="netstandard1.1">
+        <dependency id="NETStandard.Library" version="1.6.1" />
+      </group>
+      <group targetFramework="net452" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="xunit.assert\bin\$Configuration$\netstandard1.1\xunit.assert.dll" target="lib\netstandard1.1\" />
+    <file src="xunit.assert\bin\$Configuration$\netstandard1.1\xunit.assert.xml" target="lib\netstandard1.1\" />
+  </files>
+</package>

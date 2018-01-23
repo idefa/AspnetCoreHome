@@ -1,0 +1,227 @@
+﻿// Copyright (c) .NET Foundation. All rights reserved. 
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
+using Moq;
+using Xunit;
+
+namespace Microsoft.Extensions.Localization.Tests
+{
+    public class TestResourceManagerStringLocalizerFactory : ResourceManagerStringLocalizerFactory
+    {
+        private ResourceLocationAttribute _resourceLocationAttribute;
+
+        public Assembly Assembly { get; private set; }
+        public string BaseName { get; private set; }
+
+        public TestResourceManagerStringLocalizerFactory(
+            IOptions<LocalizationOptions> localizationOptions,
+            ResourceLocationAttribute resourceLocationAttribute,
+            ILoggerFactory loggerFactory)
+            : base(localizationOptions, loggerFactory)
+        {
+            _resourceLocationAttribute = resourceLocationAttribute;
+        }
+
+        protected override ResourceLocationAttribute GetResourceLocationAttribute(Assembly assembly)
+        {
+            return _resourceLocationAttribute;
+        }
+
+        protected override ResourceManagerStringLocalizer CreateResourceManagerStringLocalizer(Assembly assembly, string baseName)
+        {
+            BaseName = baseName;
+            Assembly = assembly;
+
+            return base.CreateResourceManagerStringLocalizer(assembly, baseName);
+        }
+    }
+
+    public class ResourceManagerStringLocalizerFactoryTest
+    {
+        [Fact]
+        public void Create_OverloadsProduceSameResult()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+
+            var resourceLocationAttribute = new ResourceLocationAttribute(Path.Combine("My", "Resources"));
+            var loggerFactory = NullLoggerFactory.Instance;
+            var typeFactory = new TestResourceManagerStringLocalizerFactory(
+                options.Object,
+                resourceLocationAttribute,
+                loggerFactory);
+            var stringFactory = new TestResourceManagerStringLocalizerFactory(
+                options.Object,
+                resourceLocationAttribute,
+                loggerFactory);
+            var type = typeof(ResourceManagerStringLocalizerFactoryTest);
+            var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
+
+            // Act
+            typeFactory.Create(type);
+            stringFactory.Create(type.Name, assemblyName.Name);
+
+            // Assert
+            Assert.Equal(typeFactory.BaseName, stringFactory.BaseName);
+            Assert.Equal(typeFactory.Assembly.FullName, stringFactory.Assembly.FullName);
+        }
+
+        [Fact]
+        public void Create_FromType_ReturnsCachedResultForSameType()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+
+            // Act
+            var result1 = factory.Create(typeof(ResourceManagerStringLocalizerFactoryTest));
+            var result2 = factory.Create(typeof(ResourceManagerStringLocalizerFactoryTest));
+
+            // Assert
+            Assert.Same(result1, result2);
+        }
+
+        [Fact]
+        public void Create_FromType_ReturnsNewResultForDifferentType()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+
+            // Act
+            var result1 = factory.Create(typeof(ResourceManagerStringLocalizerFactoryTest));
+            var result2 = factory.Create(typeof(LocalizationOptions));
+
+            // Assert
+            Assert.NotSame(result1, result2);
+        }
+
+        [Fact]
+        public void Create_FromType_ResourcesPathDirectorySeperatorToDot()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            locOptions.ResourcesPath = Path.Combine("My", "Resources");
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new TestResourceManagerStringLocalizerFactory(
+                options.Object,
+                resourceLocationAttribute: null,
+                loggerFactory: loggerFactory);
+
+            // Act
+            factory.Create(typeof(ResourceManagerStringLocalizerFactoryTest));
+
+            // Assert
+            Assert.Equal("Microsoft.Extensions.Localization.Tests.My.Resources." + nameof(ResourceManagerStringLocalizerFactoryTest), factory.BaseName);
+        }
+
+        [Fact]
+        public void Create_FromNameLocation_ReturnsCachedResultForSameNameLocation()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+            var location = typeof(ResourceManagerStringLocalizer).GetTypeInfo().Assembly.FullName;
+
+            // Act
+            var result1 = factory.Create("baseName", location);
+            var result2 = factory.Create("baseName", location);
+
+            // Assert
+            Assert.Same(result1, result2);
+        }
+
+        [Fact]
+        public void Create_FromNameLocation_ReturnsNewResultForDifferentName()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+            var location = typeof(ResourceManagerStringLocalizer).GetTypeInfo().Assembly.FullName;
+
+            // Act
+            var result1 = factory.Create("baseName1", location);
+            var result2 = factory.Create("baseName2", location);
+
+            // Assert
+            Assert.NotSame(result1, result2);
+        }
+
+        [Fact]
+        public void Create_FromNameLocation_ReturnsNewResultForDifferentLocation()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+            var location1 = new AssemblyName(typeof(ResourceManagerStringLocalizer).GetTypeInfo().Assembly.FullName).Name;
+            var location2 = new AssemblyName(typeof(ResourceManagerStringLocalizerFactoryTest).GetTypeInfo().Assembly.FullName).Name;
+
+            // Act
+            var result1 = factory.Create("baseName", location1);
+            var result2 = factory.Create("baseName", location2);
+
+            // Assert
+            Assert.NotSame(result1, result2);
+        }
+
+        [Fact]
+        public void Create_FromNameLocation_ResourcesPathDirectorySeparatorToDot()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            locOptions.ResourcesPath = Path.Combine("My", "Resources");
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new TestResourceManagerStringLocalizerFactory(
+                options.Object,
+                resourceLocationAttribute: null,
+                loggerFactory: loggerFactory);
+
+            // Act
+            var result1 = factory.Create("baseName", location: "Microsoft.Extensions.Localization.Tests");
+
+            // Assert
+            Assert.Equal("Microsoft.Extensions.Localization.Tests.My.Resources.baseName", factory.BaseName);
+        }
+
+        [Fact]
+        public void Create_FromNameLocation_NullLocationThrows()
+        {
+            // Arrange
+            var locOptions = new LocalizationOptions();
+            var options = new Mock<IOptions<LocalizationOptions>>();
+            options.Setup(o => o.Value).Returns(locOptions);
+            var loggerFactory = NullLoggerFactory.Instance;
+            var factory = new ResourceManagerStringLocalizerFactory(localizationOptions: options.Object, loggerFactory: loggerFactory);
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => factory.Create("baseName", location: null));
+        }
+    }
+}

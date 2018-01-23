@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata minClientVersion="2.12">
+    <id>xunit.runner.reporters</id>
+    <version>99.99.99-dev</version>
+    <title>xUnit.net [Runner Reporters]</title>
+    <authors>James Newkirk,Brad Wilson</authors>
+    <summary>Includes runner reporters: TeamCity, AppVeyor, Verbose and Quiet.</summary>
+    <description>Includes runner reporters for TeamCity, AppVeyor, Verbose and Quiet output for test runners. Supports .NET 4.5.2 or later, .NET Standard 1.1, .NET Standard 1.5, and .NET Core 1.0 or later.</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/xunit/xunit</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/xunit/media/master/logo-512-transparent.png</iconUrl>
+    <licenseUrl>https://raw.githubusercontent.com/xunit/xunit/master/license.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="net452">
+        <dependency id="xunit.runner.utility" version="[99.99.99-dev]" />
+      </group>
+      <group targetFramework="netstandard1.1">
+        <dependency id="NETStandard.Library" version="1.6.1" />
+        <dependency id="xunit.runner.utility" version="[99.99.99-dev]" />
+      </group>
+      <group targetFramework="netstandard1.5">
+        <dependency id="NETStandard.Library" version="1.6.1" />
+        <dependency id="xunit.runner.utility" version="[99.99.99-dev]" />
+      </group>
+      <group targetFramework="netcoreapp1.0">
+        <dependency id="NETStandard.Library" version="1.6.0" />
+        <dependency id="xunit.runner.utility" version="[99.99.99-dev]" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="xunit.runner.reporters\bin\$Configuration$\net452\xunit.runner.reporters.net452.dll" target="lib\net452\" />
+
+    <file src="xunit.runner.reporters\bin\$Configuration$\netstandard1.1\xunit.runner.reporters.netstandard11.dll" target="lib\netstandard1.1\" />
+
+    <file src="xunit.runner.reporters\bin\$Configuration$\netstandard1.5\xunit.runner.reporters.netstandard15.dll" target="lib\netstandard1.5\" />
+
+    <file src="xunit.runner.reporters\bin\$Configuration$\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" target="lib\netcoreapp1.0\" />
+  </files>
+</package>

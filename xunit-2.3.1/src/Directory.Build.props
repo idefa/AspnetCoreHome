@@ -1,0 +1,27 @@
+<Project>
+
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../signing.snk</AssemblyOriginatorKeyFile>
+    <DebugType>embedded</DebugType>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <LangVersion>latest</LangVersion>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <RootNamespace>Xunit</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <VersionPrefix>99.99.99-dev</VersionPrefix>
+    <WarningsAsErrors>true</WarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)common\GlobalAssemblyInfo.cs" LinkBase="Properties" />
+    <PackageReference Include="SourceLink.Create.CommandLine" Version="2.2" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>
