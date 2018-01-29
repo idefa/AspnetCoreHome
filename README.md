@@ -12,6 +12,7 @@ Asp.net Core和传统的Asp.net有很大的区别,Asp.net Core是一次重新改
 net core有区别于以前的开发模式，提供了类似NodeJs的开发体验，建议的开发模式[Visual Studio Code](https://code.visualstudio.com/) + [命令行工具](https://docs.microsoft.com/zh-cn/dotnet/core/tools/?tabs=netcore2x)
 1. [Visual Studio 创建](https://docs.microsoft.com/zh-cn/aspnet/core/tutorials/first-mvc-app/start-mvc?tabs=aspnetcore2x)
 2. [命令行创建](https://docs.microsoft.com/zh-cn/aspnet/core/getting-started)
+3. [快速入门](http://netgos.com/corequickstart/]
 
 ## 基本概念
 
