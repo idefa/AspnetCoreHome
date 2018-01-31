@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/test/Microsoft.Extensions.Logging.AzureAppServices.Test/Microsoft.Extensions.Logging.AzureAppServices.Test.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
