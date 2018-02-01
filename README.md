@@ -52,7 +52,7 @@ net core有区别于以前的开发模式，提供了类似NodeJs的开发体验
 2. [vipyoumay](http://www.cnblogs.com/vipyoumay/category/842989.html)
 
 
-## asp.net core mvc 由一个个独立的git项目组成，相互依赖，可以灵活替换。各个模块扩展，重写也非常方便。
+# Mvc
 ![repositories](https://gitee.com/uploads/images/2018/0123/150100_976cc7cc_1390534.png "clipboard1.png")
 
 ## 1.Configuration
