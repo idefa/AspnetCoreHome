@@ -23,7 +23,7 @@ namespace LocalizationWebsite
                 })
                 .UseKestrel()
                 .UseConfiguration(config)
-                .UseStartup("LocalizationWebsite")
+                .UseStartup<StartupResourcesInFolder>()
                 .Build();
 
             host.Run();

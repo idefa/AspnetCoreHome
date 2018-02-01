@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netcoreapp2.0</TargetFrameworks>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\shared\Microsoft.Extensions.ActivatorUtilities.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.ClosedGenericMatcher.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.CopyOnWriteDictionary.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.DotnetToolDispatcher.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.HashCodeCombiner.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.ObjectMethodExecutor.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.ParameterDefaultValue.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.PropertyActivator.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.PropertyHelper.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.SecurityHelper.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.StackTrace.Sources\StackFrame\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.TypeNameHelper.Sources\**\*.cs" />
+    <Compile Include="..\..\shared\Microsoft.Extensions.WebEncoders.Sources\**\*.cs" />
+    <EmbeddedResource Include="..\..\shared\*.Sources\**\*.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ThrowingLibrary\ThrowingLibrary.csproj" />
+
+    <PackageReference Include="FSharp.Core" Version="$(FSharpCoreVersion)" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(TestSdkVersion)" />
+    <PackageReference Include="Moq" Version="$(MoqVersion)" />
+    <PackageReference Include="System.Reflection.Metadata" Version="$(SystemReflectionMetadataVersion)" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="$(CoreFxVersion)" />
+    <PackageReference Include="xunit" Version="$(XunitVersion)" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitRunnerVisualStudioVersion)" />
+  </ItemGroup>
+
+</Project>
