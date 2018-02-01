@@ -1,15 +1,15 @@
 # 简介
 这个仓库是Asp.net Core官网的一个合集,方便一次性Clone; 我们比任何时候更接近真相(源码)
-## [Asp.net Core 简介](https://docs.microsoft.com/zh-cn/aspnet/core/)
-Asp.net Core和传统的Asp.net有很大的区别,Asp.net Core是一次重新改版.比如没有了 System.Web.dll,HttpModule,HttpHandler,Global.asax等. Asp.net Core的一个核心原则是模块化, 它由一系列细粒度的Nuget包组成并且默认都不加载,当你实现某个功能才需要增加相应的Nuget包,这样就保证了你安装了最小化包集合.
-> Asp.net Core 2.0 新增了一个 Microsoft.AspNet.All nuget包,用来打包Asp.net Core相关的所有包.
+
+## [Asp.Net Core 是开源,跨平台,模块化,快速而简单的Web框架](https://docs.microsoft.com/zh-cn/aspnet/core/)
+
 ![.net core](https://gitee.com/uploads/images/2018/0123/145154_42b9985c_1390534.png ".net core")
 ![net standard](https://gitee.com/uploads/images/2018/0129/170535_6bb2348b_1390534.png "TIM截图20180129142552.png")
 ## 工具安装
 1. [.Net Core SDK 和 Visual Studio Code下载安装](https://www.microsoft.com/net/download/)
 2. [Visual Studio Code下载安装](https://code.visualstudio.com/)
 
-## [快速入门](http://netgos.com/corequickstart/)
+## 快速入门
 net core有区别于以前的开发模式，提供了类似NodeJs的开发体验，建议的开发模式[Visual Studio Code](https://code.visualstudio.com/) + [命令行工具](https://docs.microsoft.com/zh-cn/dotnet/core/tools/?tabs=netcore2x)
 - [安装](http://netgos.com/corequickstart/)
 - [一个最小的应用](http://netgos.com/corequickstart/)
@@ -27,7 +27,6 @@ net core有区别于以前的开发模式，提供了类似NodeJs的开发体验
 - [国际化和多语言](http://netgos.com/corequickstart/)
 
 ## 基本概念
-
 1. [NET Core 指南](https://docs.microsoft.com/zh-cn/dotnet/core/index)
 2. [ASP.NET Core 基础知识](https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/index?tabs=aspnetcore2x)
 3. [中间件](https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/middleware?tabs=aspnetcore2x)
@@ -39,9 +38,19 @@ net core有区别于以前的开发模式，提供了类似NodeJs的开发体验
 2. [命令行工具](https://docs.microsoft.com/zh-cn/dotnet/core/tools/?tabs=netcore2x)
 
 ## GitHub资料
-
 1. [Awesome .NET Core](https://github.com/thangchung/awesome-dotnet-core/)
 2. [Entropy](https://github.com/aspnet/Entropy/tree/dev/samples)
+3. [官方DotNetTools](https://github.com/aspnet/DotNetTools)
+3. [dotnet-tools](https://github.com/natemcmaster/dotnet-tools)
+
+## 国外博客
+1. [joonasw.net](https://joonasw.net)
+2. [dotnetliberty](https://dotnetliberty.com)
+
+## 国内博客
+1. [jessetalk](http://www.jessetalk.cn/category/tech/)
+2. [vipyoumay](http://www.cnblogs.com/vipyoumay/category/842989.html)
+
 
 ## asp.net core mvc 由一个个独立的git项目组成，相互依赖，可以灵活替换。各个模块扩展，重写也非常方便。
 ![repositories](https://gitee.com/uploads/images/2018/0123/150100_976cc7cc_1390534.png "clipboard1.png")
