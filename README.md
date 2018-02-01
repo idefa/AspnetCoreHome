@@ -11,8 +11,20 @@ Asp.net Core和传统的Asp.net有很大的区别,Asp.net Core是一次重新改
 
 ## [快速入门](http://netgos.com/corequickstart/)
 net core有区别于以前的开发模式，提供了类似NodeJs的开发体验，建议的开发模式[Visual Studio Code](https://code.visualstudio.com/) + [命令行工具](https://docs.microsoft.com/zh-cn/dotnet/core/tools/?tabs=netcore2x)
-1. [Visual Studio 创建](https://docs.microsoft.com/zh-cn/aspnet/core/tutorials/first-mvc-app/start-mvc?tabs=aspnetcore2x)
-2. [命令行创建](https://docs.microsoft.com/zh-cn/aspnet/core/getting-started)
+- [安装](http://netgos.com/corequickstart/)
+- [一个最小的应用](http://netgos.com/corequickstart/)
+- [项目模板](http://netgos.com/corequickstart/)
+- [路由](http://netgos.com/corequickstart/)
+- [静态文件](http://netgos.com/corequickstart/)
+- [页面渲染](http://netgos.com/corequickstart/)
+- [Razor模板引擎](http://netgos.com/corequickstart/)
+- [请求](http://netgos.com/corequickstart/)
+- [错误和重定向](http://netgos.com/corequickstart/)
+- [关于响应](http://netgos.com/corequickstart/)
+- [会话](http://netgos.com/corequickstart/)
+- [日志](http://netgos.com/corequickstart/)
+- [配置](http://netgos.com/corequickstart/)
+- [国际化和多语言](http://netgos.com/corequickstart/)
 
 ## 基本概念
 
