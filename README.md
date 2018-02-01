@@ -4,14 +4,27 @@
 Asp.net Core和传统的Asp.net有很大的区别,Asp.net Core是一次重新改版.比如没有了 System.Web.dll,HttpModule,HttpHandler,Global.asax等. Asp.net Core的一个核心原则是模块化, 它由一系列细粒度的Nuget包组成并且默认都不加载,当你实现某个功能才需要增加相应的Nuget包,这样就保证了你安装了最小化包集合.
 > Asp.net Core 2.0 新增了一个 Microsoft.AspNet.All nuget包,用来打包Asp.net Core相关的所有包.
 ![.net core](https://gitee.com/uploads/images/2018/0123/145154_42b9985c_1390534.png ".net core")
+![net standard](https://gitee.com/uploads/images/2018/0129/170535_6bb2348b_1390534.png "TIM截图20180129142552.png")
 ## 工具安装
 1. [.Net Core SDK 和 Visual Studio Code下载安装](https://www.microsoft.com/net/download/)
 2. [Visual Studio Code下载安装](https://code.visualstudio.com/)
 
-## 创建第一个Asp.net Core项目
+## [快速入门](http://netgos.com/corequickstart/)
 net core有区别于以前的开发模式，提供了类似NodeJs的开发体验，建议的开发模式[Visual Studio Code](https://code.visualstudio.com/) + [命令行工具](https://docs.microsoft.com/zh-cn/dotnet/core/tools/?tabs=netcore2x)
-1. [Visual Studio 创建](https://docs.microsoft.com/zh-cn/aspnet/core/tutorials/first-mvc-app/start-mvc?tabs=aspnetcore2x)
-2. [命令行创建](https://docs.microsoft.com/zh-cn/aspnet/core/getting-started)
+- [安装](http://netgos.com/corequickstart/)
+- [一个最小的应用](http://netgos.com/corequickstart/)
+- [项目模板](http://netgos.com/corequickstart/)
+- [路由](http://netgos.com/corequickstart/)
+- [静态文件](http://netgos.com/corequickstart/)
+- [页面渲染](http://netgos.com/corequickstart/)
+- [Razor模板引擎](http://netgos.com/corequickstart/)
+- [请求](http://netgos.com/corequickstart/)
+- [错误和重定向](http://netgos.com/corequickstart/)
+- [关于响应](http://netgos.com/corequickstart/)
+- [会话](http://netgos.com/corequickstart/)
+- [日志](http://netgos.com/corequickstart/)
+- [配置](http://netgos.com/corequickstart/)
+- [国际化和多语言](http://netgos.com/corequickstart/)
 
 ## 基本概念
 
@@ -30,7 +43,7 @@ net core有区别于以前的开发模式，提供了类似NodeJs的开发体验
 1. [Awesome .NET Core](https://github.com/thangchung/awesome-dotnet-core/)
 2. [Entropy](https://github.com/aspnet/Entropy/tree/dev/samples)
 
-## asp.net core 由一个个独立的git项目组成，相互依赖，可以灵活替换。各个模块扩展，重写也非常方便。
+## asp.net core mvc 由一个个独立的git项目组成，相互依赖，可以灵活替换。各个模块扩展，重写也非常方便。
 ![repositories](https://gitee.com/uploads/images/2018/0123/150100_976cc7cc_1390534.png "clipboard1.png")
 
 ## 1.Configuration
