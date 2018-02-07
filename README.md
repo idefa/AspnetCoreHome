@@ -3,11 +3,11 @@
 
 ## [Asp.Net Core 是开源,跨平台,模块化,快速而简单的Web框架](https://docs.microsoft.com/zh-cn/aspnet/core/)
 
-![.net core](https://gitee.com/uploads/images/2018/0123/145154_42b9985c_1390534.png ".net core")
+![.net core](./Books/1.png ".net core")
 
-![modules](https://gitee.com/uploads/images/2018/0202/130232_dfeea866_1390534.png "aspnetcore_modules.png")
+![modules](./Books/2.png "aspnetcore_modules.png")
 
-![net standard](https://gitee.com/uploads/images/2018/0129/170535_6bb2348b_1390534.png "TIM截图20180129142552.png")
+![net standard](./Books/3.png "TIM截图20180129142552.png")
 ## 工具安装
 1. [.Net Core SDK 和 Visual Studio Code下载安装](https://www.microsoft.com/net/download/)
 2. [Visual Studio Code下载安装](https://code.visualstudio.com/)
@@ -31,8 +31,8 @@ net core有区别于以前的开发模式，提供了类似NodeJs的开发体验
 
 ## 请求流程
 
-![输入图片说明](https://gitee.com/uploads/images/2018/0205/153224_f46d7b73_1390534.png "请求流程.png")
-![输入图片说明](https://gitee.com/uploads/images/2018/0205/153401_a3ded117_1390534.png "请求流程2.png")
+![输入图片说明](./Books/4.png "请求流程.png")
+![输入图片说明](./Books/5.png "请求流程2.png")
 
 asp.net core实现了一个跨平台的宿主和web服务器. 一旦你调用了WebHost对象的Start方法,你就运行了一个监听Http请求的Web服务器,它可以运行在32位的linux系统甚至是树莓派上.然而在生产环境还是建议你使用一些反向代理工具,如Nginx,IIs,Apache等.为什么需要反向代理,因为Kestrel只是一个简单的Web服务器,其他语言像java,python,nodejs,ruby,你会看到一些Web服务器PM2或者Passenger结合反向代理工具使用.这些Web服务器提供了监控,日志,负载均衡和流程管理功能,对于一个成熟的Web服务器而言.在Windows平台,你可以使用IIS反向代理,在linux服务器使用nginx/apache来实现反向代理.
 
